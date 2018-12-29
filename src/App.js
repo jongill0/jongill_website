@@ -1,26 +1,52 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Badge from '@material-ui/core/Badge';
+import IconButton from '@material-ui/core/IconButton';
+import MailIcon from '@material-ui/icons/Mail';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <div>
+            <div>
+              <Badge className={classes.margin} badgeContent={4} color="primary">
+                <MailIcon />
+              </Badge>
+              <Badge className={classes.margin} badgeContent={10} color="secondary">
+                <MailIcon />
+              </Badge>
+              <IconButton aria-label="4 pending messages" className={classes.margin}>
+                <Badge badgeContent={4} color="primary">
+                  <MailIcon />
+                </Badge>
+              </IconButton>
+            </div>
+            <AppBar position="static" className={classes.margin}>
+              <Tabs value={0}>
+                <Tab
+                  label={
+                    <Badge className={classes.padding} color="secondary" badgeContent={4}>
+                      Item One
+                    </Badge>
+                  }
+                />
+                <Tab label="Item Two" />
+                <Tab label="Item Three" />
+              </Tabs>
+            </AppBar>
+            <Badge color="primary" badgeContent={4} className={classes.margin}>
+              <Typography className={classes.padding}>Typography</Typography>
+            </Badge>
+            <Badge color="primary" badgeContent={4} className={classes.margin}>
+              <Button variant="contained">Button</Button>
+            </Badge>
+          </div>
     );
   }
 }
